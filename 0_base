@@ -1,0 +1,43 @@
+#!/bin/bash
+#
+# this will run as root because the user has not been added with visudo
+# the system will be updated for the first time
+# and only very basic tools will be installed
+
+clear 
+
+[[ $(id -u) != "0" ]] && echo "you are not ROOT" && exit 1 
+
+echo -e "\n${0}: install of some base application\n\n"
+
+echo -e "updating system:"
+sleep 2 
+xbps-install -S 
+xbps-install void-repo-nonfree
+xbps-install -Su 
+
+clear 
+echo -e "\ninstalling some programs:"
+sleep 2 
+xbps-install base-devel \
+  xtools \
+  rsync \
+  udevil \
+  vsv
+
+echo "in the next step you'll edit /etc/sudoers"
+read -p "press <ENTER> to continue"
+visudo
+
+clear 
+cat <<-EOF
+
+
+
+1. Now login as your USER
+2. run 1_user
+
+
+EOF
+
+exit 0 

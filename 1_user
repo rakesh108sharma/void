@@ -1,0 +1,72 @@
+#!/bin/bash
+#
+# installs some usefull programs
+# mostly for the terminal
+# add the USER to some needed groups
+
+
+clear 
+
+[[ $(id -u) == "0" ]] && echo "Do not run as ROOT" && exit 1 
+
+echo -e "\n${0}: Install of some base application\n\n"
+
+echo -e "\n\nAdding USER:$USER to some groups"
+sudo usermod --append --groups audio,video,storage,transmission,docker "$USER"
+
+echo -e "updating system:"
+sleep 2 
+xbps-install -Su 
+
+clear 
+echo -e "\ninstalling some programs:"
+sleep 2 
+xbps-install vim \
+  neovim \
+  micro \
+  lf \
+  lynx \
+  bash-completion \
+  checkbashisms \
+  shellcheck \
+  highlight \
+  bat \
+  mdcat \
+  mediainfo \
+  hstr \
+  stow \
+  fish-shell \
+  mimic \
+  clipit \
+  alsa-utils \
+  mpv \
+  vlc \
+  ffmpeg \
+  gst-plugins-good1 \
+  gst-plugins-bad1 \
+  gst-plugins-ugly1 
+
+
+clear 
+echo -e "\n\nCloning dotfiles and vimwiki:"
+sleep 2
+cd "$HOME" || exit 1 
+git clone https://github.com/rakesh108sharma/.dot.git
+git clone https://github.com/rakesh108sharma/vimwiki.git
+
+
+# message to USER 
+clear 
+cat <<-EOF
+
+
+
+1. look in '.dot/' and use 'stow' to create 
+   symbolic links of the programs you need.
+
+2. run 2_xorg as USER
+
+
+EOF
+
+exit 0 

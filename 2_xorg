@@ -1,0 +1,42 @@
+#!/bin/bash
+#
+# install of Xorg
+# and some usefull X-applications
+# install and config of flatpak 
+
+clear 
+
+[[ $(id -u) == "0" ]] && echo "Do not run as ROOT" && exit 1 
+
+
+echo -e "\n${0}: Install of Xorg and some X-application\n\n"
+sleep 2 
+
+sudo xbps-install xorg \
+  picom \
+  chromium \
+  firefox \
+  flatpak
+
+flatpak add-remote --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+
+# message to USER
+clear
+cat <<-EOF
+
+
+
+next run 3_suckless as USER
+
+  it will install:
+    dwm
+    slstatus
+    dmenu
+    st
+    herbe
+
+
+EOF
+
+exit 0

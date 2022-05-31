@@ -1,0 +1,57 @@
+#!/bin/bash
+#
+# installs programs from suckless.org
+# git clone && make install
+
+
+clear 
+
+[[ $(id -u) == "0" ]] && echo "Do not run as ROOT" && exit 1 
+
+cd "$HOME" || exit 1
+
+echo -e "\n${0}: Install of the suckless window environment!"
+
+echo -e "install necessary libraries\n"
+sleep 2 
+sudo xbps-install -Su
+sudo xbps-install libX11-devel \
+  libXinerama-devel \
+  libXft-devel
+
+clear
+echo -e "\n\nclone git repositories\n"
+sleep 2 
+mkdir .suckless && cd .suckless || exit
+git clone https://git.suckless.org/dwm
+git clone https://git.suckless.org/slstatus
+git clone https://git.suckless.org/dmenu
+git clone https://git.suckless.org/st
+git clone https://github.com/dudik/herber.git
+
+
+# message to USER
+cat <<-EOF
+
+
+
+Following repositories have been cloned:
+  - dwm
+  - slstatus
+  - dmenu
+  - st
+  - herber
+
+1. Enter into each directory
+2. change 'config.mk'
+   X11INC = /usr/include  
+   X11LIB = /usr/lib 
+3. configure each program by editing 'config.h'
+4. RUN:
+   make
+   sudo make install
+
+
+EOF
+
+exit 0
