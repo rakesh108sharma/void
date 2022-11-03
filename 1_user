@@ -12,16 +12,18 @@ clear
 echo -e "\n${0}: Install of some base application\n\n"
 
 echo -e "\n\nAdding USER:$USER to some groups"
+sudo groupadd transmission
+sudo groupadd docker 
 sudo usermod --append --groups audio,video,storage,transmission,docker "$USER"
 
 echo -e "updating system:"
 sleep 2 
-xbps-install -Su 
+sudo xbps-install -Su 
 
 clear 
 echo -e "\ninstalling some programs:"
 sleep 2 
-xbps-install vim \
+sudo xbps-install vim \
   neovim \
   micro \
   lf \
@@ -38,6 +40,7 @@ xbps-install vim \
   fish-shell \
   mimic \
   clipit \
+  mupdf \
   alsa-utils \
   mpv \
   vlc \
@@ -48,9 +51,10 @@ xbps-install vim \
 
 
 clear 
-echo -e "\n\nCloning dotfiles and vimwiki:"
+echo -e "\n\nCreating directories and cloning dotfiles and vimwiki:"
 sleep 2
 cd "$HOME" || exit 1 
+mkdir bin downloads desktop documents
 git clone https://github.com/rakesh108sharma/.dot.git
 git clone https://github.com/rakesh108sharma/vimwiki.git
 

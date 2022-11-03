@@ -16,6 +16,8 @@ sudo xbps-install xorg \
   picom \
   chromium \
   firefox \
+  transmission \
+  element-desktop \
   flatpak
 
 flatpak add-remote --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo

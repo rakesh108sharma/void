@@ -13,8 +13,9 @@ echo -e "\n${0}: install of some base application\n\n"
 echo -e "updating system:"
 sleep 2 
 xbps-install -S 
+xbps-install xbps
 xbps-install void-repo-nonfree
-xbps-install -Su 
+xbps-install -Su
 
 clear 
 echo -e "\ninstalling some programs:"

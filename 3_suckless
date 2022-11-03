@@ -27,7 +27,7 @@ git clone https://git.suckless.org/dwm
 git clone https://git.suckless.org/slstatus
 git clone https://git.suckless.org/dmenu
 git clone https://git.suckless.org/st
-git clone https://github.com/dudik/herber.git
+git clone https://github.com/dudik/herbe.git
 
 
 # message to USER
@@ -40,7 +40,7 @@ Following repositories have been cloned:
   - slstatus
   - dmenu
   - st
-  - herber
+  - herbe
 
 1. Enter into each directory
 2. change 'config.mk'
