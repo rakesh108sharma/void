@@ -13,19 +13,20 @@ echo -e "\n${0}: install of some base application\n\n"
 echo -e "updating system:"
 sleep 2 
 xbps-install -S 
-xbps-install xbps
-xbps-install void-repo-nonfree
-xbps-install -Su
+xbps-install -y xbps
+xbps-install -y void-repo-nonfree
+xbps-install -Suy
 
 clear 
 echo -e "\ninstalling some programs:"
 sleep 2 
-xbps-install base-devel \
+xbps-install -y base-devel \
   xtools \
   rsync \
   udevil \
   vsv
 
+clear
 echo "in the next step you'll edit /etc/sudoers"
 read -p "press <ENTER> to continue"
 visudo

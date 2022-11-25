@@ -14,8 +14,8 @@ echo -e "\n${0}: Install of the suckless window environment!"
 
 echo -e "install necessary libraries\n"
 sleep 2 
-sudo xbps-install -Su
-sudo xbps-install libX11-devel \
+sudo xbps-install -Suy
+sudo xbps-install -y libX11-devel \
   libXinerama-devel \
   libXft-devel
 

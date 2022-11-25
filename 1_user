@@ -18,12 +18,12 @@ sudo usermod --append --groups audio,video,storage,transmission,docker "$USER"
 
 echo -e "updating system:"
 sleep 2 
-sudo xbps-install -Su 
+sudo xbps-install -Suy 
 
 clear 
 echo -e "\ninstalling some programs:"
 sleep 2 
-sudo xbps-install vim \
+sudo xbps-install -y vim \
   neovim \
   micro \
   lf \

@@ -12,7 +12,7 @@ clear
 echo -e "\n${0}: Install of Xorg and some X-application\n\n"
 sleep 2 
 
-sudo xbps-install xorg \
+sudo xbps-install -y xorg \
   picom \
   chromium \
   firefox \
