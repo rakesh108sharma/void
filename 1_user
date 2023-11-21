@@ -24,7 +24,7 @@ clear
 echo -e "\ninstalling some programs:"
 sleep 2 
 sudo xbps-install -y vim \
-  neovim \
+  helix \
   micro \
   lf \
   lynx \
@@ -55,6 +55,8 @@ echo -e "\n\nCreating directories and cloning dotfiles and vimwiki:"
 sleep 2
 cd "$HOME" || exit 1 
 mkdir bin downloads desktop documents
+mkdir .themes .icons
+
 git clone https://github.com/rakesh108sharma/.dot.git
 git clone https://github.com/rakesh108sharma/vimwiki.git
 

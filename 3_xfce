@@ -1,0 +1,39 @@
+#!/bin/bash
+#
+# installs programs for xfce
+
+
+
+clear 
+
+[[ $(id -u) == "0" ]] && echo "Do not run as ROOT" && exit 1 
+
+cd "$HOME" || exit 1
+
+echo -e "\n${0}: Install of the xfce4 window environment!"
+
+sleep 2 
+
+sudo xbps-install -Suy
+
+sudo xbps-install -y xfce4 \
+  xfce4-plugins
+
+
+
+clear
+
+# message to USER
+cat <<-EOF
+
+
+google search for themes and icons:
+     "xfce look"
+
+download and move to folders:
+     .themes .icons
+
+
+EOF
+
+exit 0

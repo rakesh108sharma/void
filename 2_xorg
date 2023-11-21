@@ -39,6 +39,10 @@ next run 3_suckless as USER
     herbe
 
 
+      OR
+
+run 3_xfce
+
 EOF
 
 exit 0
