@@ -26,6 +26,7 @@ sleep 2
 sudo xbps-install -y vim \
   helix \
   micro \
+  mc \
   lf \
   lynx \
   bash-completion \
@@ -36,6 +37,9 @@ sudo xbps-install -y vim \
   mdcat \
   mediainfo \
   hstr \
+  ripgrep \
+  fd \
+  fzf \
   stow \
   fish-shell \
   mimic \
